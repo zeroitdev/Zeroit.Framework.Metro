@@ -1,0 +1,159 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{2C3C5906-5A7B-4D48-B1CB-479DF5C307B6}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Zeroit.Framework.Metro</RootNamespace>
+    <AssemblyName>Zeroit.Framework.Metro</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <DocumentationFile>bin\Debug\Zeroit.Framework.Metro.xml</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <DocumentationFile>bin\Release\Zeroit.Framework.Metro.xml</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>ZeroitStrongKeys.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="MetroControls\Animator.cs" />
+    <Compile Include="MetroControls\Balloon.cs" />
+    <Compile Include="MetroControls\Helpers\Design.cs" />
+    <Compile Include="MetroControls\Helpers\Helpers.cs" />
+    <Compile Include="MetroControls\Helpers\MetroControlBoxArea.cs" />
+    <Compile Include="MetroControls\Helpers\MetroControlBoxAreaCollection.cs" />
+    <Compile Include="MetroControls\Helpers\MetroControlBoxAreaCollectionEventArgs.cs" />
+    <Compile Include="MetroControls\Helpers\MetroTrackerPath.cs" />
+    <Compile Include="MetroControls\Helpers\MetroTrackerPathCollection.cs" />
+    <Compile Include="MetroControls\Helpers\MetroTrackerPathCollectionEventArgs.cs" />
+    <Compile Include="MetroControls\Helpers\TrackerPathAlertEventArgs.cs" />
+    <Compile Include="MetroControls\MetroButton.cs" />
+    <Compile Include="MetroControls\MetroCheckBox.cs" />
+    <Compile Include="MetroControls\MetroCheckBoxActionList.cs" />
+    <Compile Include="MetroControls\MetroCheckBoxDesigner.cs" />
+    <Compile Include="MetroControls\MetroCheckCircle.cs" />
+    <Compile Include="MetroControls\MetroChecker.cs" />
+    <Compile Include="MetroControls\MetroCircularProgress.cs" />
+    <Compile Include="MetroControls\MetroCircularProgressDesigner.cs" />
+    <Compile Include="MetroControls\MetroControlBox.cs" />
+    <Compile Include="MetroControls\MetroExpander.cs" />
+    <Compile Include="MetroControls\MetroExpanderActionList.cs" />
+    <Compile Include="MetroControls\MetroExpanderDesigner.cs" />
+    <Compile Include="MetroControls\MetroForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MetroControls\MetroGraphDesigner.cs" />
+    <Compile Include="MetroControls\MetroGraph.cs" />
+    <Compile Include="MetroControls\MetroKnobDesigner.cs" />
+    <Compile Include="MetroControls\MetroKnob.cs" />
+    <Compile Include="MetroControls\MetroListbox.cs" />
+    <Compile Include="MetroControls\MetroNavigationButtonDesigner.cs" />
+    <Compile Include="MetroControls\MetroNavigationButton.cs" />
+    <Compile Include="MetroControls\MetroPanelCategoryDesigner.cs" />
+    <Compile Include="MetroControls\MetroPanelCategory.cs" />
+    <Compile Include="MetroControls\MetroPanelSelection.cs" />
+    <Compile Include="MetroControls\MetroPanelSelectionDesigner.cs" />
+    <Compile Include="MetroControls\MetroPieChart.cs" />
+    <Compile Include="MetroControls\MetroPieChartDesigner.cs" />
+    <Compile Include="MetroControls\MetroPieChartSegment.cs" />
+    <Compile Include="MetroControls\MetroPieChartSegmentCollection.cs" />
+    <Compile Include="MetroControls\MetroPieChartSegmentCollectionEventArgs.cs" />
+    <Compile Include="MetroControls\MetroProgressbarDesigner.cs" />
+    <Compile Include="MetroControls\MetroProgressbar.cs" />
+    <Compile Include="MetroControls\MetroSeparator.cs">
+      <SubType>Value</SubType>
+    </Compile>
+    <Compile Include="MetroControls\MetroSeparatorActionList.cs" />
+    <Compile Include="MetroControls\MetroSeparatorDesigner.cs" />
+    <Compile Include="MetroControls\MetroSwitchDesigner.cs" />
+    <Compile Include="MetroControls\MetroSwitch.cs" />
+    <Compile Include="MetroControls\MetroTabControl.cs" />
+    <Compile Include="MetroControls\MetroTaskDesigner.cs" />
+    <Compile Include="MetroControls\MetroTask.cs" />
+    <Compile Include="MetroControls\MetroTaskPoint.cs" />
+    <Compile Include="MetroControls\MetroTaskPointCollection.cs" />
+    <Compile Include="MetroControls\MetroTaskPointCollectionEventArgs.cs" />
+    <Compile Include="MetroControls\MetroTextboxDesigner.cs" />
+    <Compile Include="MetroControls\MetroTextbox.cs" />
+    <Compile Include="MetroControls\MetroTrackbarDesigner.cs" />
+    <Compile Include="MetroControls\MetroTrackbar.cs" />
+    <Compile Include="MetroControls\MetroTrackbarRegion.cs" />
+    <Compile Include="MetroControls\MetroTrackBarRegionDesigner.cs" />
+    <Compile Include="MetroControls\MetroTrackbarRegionEventArgs.cs" />
+    <Compile Include="MetroControls\MetroTracker.cs" />
+    <Compile Include="MetroControls\MetroWebChartDesigner.cs" />
+    <Compile Include="MetroControls\MetroWebChart.cs" />
+    <Compile Include="MetroControls\MetroWebChartPoint.cs" />
+    <Compile Include="MetroControls\MetroWebChartPointCollection.cs" />
+    <Compile Include="MetroControls\MetroWebChartPointCollectionEventArgs.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <None Include="Zeroit.Framework.Metro.nuspec" />
+    <None Include="ZeroitStrongKeys.snk" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PointRow.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

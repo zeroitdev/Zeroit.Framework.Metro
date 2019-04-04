@@ -1,0 +1,468 @@
+// ***********************************************************************
+// Assembly         : Zeroit.Framework.Metro
+// Author           : ZEROIT
+// Created          : 11-29-2018
+//
+// Last Modified By : ZEROIT
+// Last Modified On : 12-18-2018
+// ***********************************************************************
+// <copyright file="MetroNavigationButtonDesigner.cs" company="Zeroit Dev Technologies">
+//    This program is for creating Metro Style controls.
+//    Copyright ©  2017  Zeroit Dev Technologies
+//
+//    This program is free software: you can redistribute it and/or modify
+//    it under the terms of the GNU General Public License as published by
+//    the Free Software Foundation, either version 3 of the License, or
+//    (at your option) any later version.
+//
+//    This program is distributed in the hope that it will be useful,
+//    but WITHOUT ANY WARRANTY; without even the implied warranty of
+//    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+//    GNU General Public License for more details.
+//
+//    You should have received a copy of the GNU General Public License
+//    along with this program.  If not, see <https://www.gnu.org/licenses/>.
+//
+//    You can contact me at zeroitdevnet@gmail.com or zeroitdev@outlook.com
+// </copyright>
+// <summary></summary>
+// ***********************************************************************
+using System;
+using System.Collections;
+using System.ComponentModel;
+using System.ComponentModel.Design;
+using System.Drawing;
+using System.Text;
+
+namespace Zeroit.Framework.Metro
+{
+
+    #region Smart Tag Code
+
+    #region Cut and Paste it on top of the component class
+
+    //--------------- [Designer(typeof(ZeroitMetroNavigationButtonDesigner))] --------------------//
+    #endregion
+
+    #region ControlDesigner
+    /// <summary>
+    /// Class ZeroitMetroNavigationButtonDesigner.
+    /// </summary>
+    /// <seealso cref="System.Windows.Forms.Design.ControlDesigner" />
+    [System.Security.Permissions.PermissionSet(System.Security.Permissions.SecurityAction.Demand, Name = "FullTrust")]
+    public class ZeroitMetroNavigationButtonDesigner : System.Windows.Forms.Design.ControlDesigner
+    {
+        /// <summary>
+        /// The action lists
+        /// </summary>
+        private DesignerActionListCollection actionLists;
+
+        // Use pull model to populate smart tag menu.
+        /// <summary>
+        /// Gets the design-time action lists supported by the component associated with the designer.
+        /// </summary>
+        /// <value>The action lists.</value>
+        public override DesignerActionListCollection ActionLists
+        {
+            get
+            {
+                if (null == actionLists)
+                {
+                    actionLists = new DesignerActionListCollection();
+                    actionLists.Add(new ZeroitMetroNavigationButtonSmartTagActionList(this.Component));
+                }
+                return actionLists;
+            }
+        }
+
+        #region Zeroit Filter (Remove Properties)
+        /// <summary>
+        /// Remove Button and Control properties that are
+        /// not supported by the <see cref="MACButton" />.
+        /// </summary>
+        /// <param name="Properties">The properties.</param>
+        protected override void PostFilterProperties(IDictionary Properties)
+        {
+            //Properties.Remove("AllowDrop");
+            //Properties.Remove("FlatStyle");
+            //Properties.Remove("ForeColor");
+            //Properties.Remove("ImageIndex");
+            //Properties.Remove("ImageList");
+        }
+        #endregion
+
+    }
+
+    #endregion
+
+    #region SmartTagActionList
+    /// <summary>
+    /// Class ZeroitMetroNavigationButtonSmartTagActionList.
+    /// </summary>
+    /// <seealso cref="System.ComponentModel.Design.DesignerActionList" />
+    public class ZeroitMetroNavigationButtonSmartTagActionList : System.ComponentModel.Design.DesignerActionList
+    {
+        //Replace SmartTag with the Component Class Name. In this case the component class name is SmartTag
+        /// <summary>
+        /// The col user control
+        /// </summary>
+        private ZeroitMetroNavigationButton colUserControl;
+
+
+        /// <summary>
+        /// The designer action UI SVC
+        /// </summary>
+        private DesignerActionUIService designerActionUISvc = null;
+
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ZeroitMetroNavigationButtonSmartTagActionList"/> class.
+        /// </summary>
+        /// <param name="component">A component related to the <see cref="T:System.ComponentModel.Design.DesignerActionList" />.</param>
+        public ZeroitMetroNavigationButtonSmartTagActionList(IComponent component) : base(component)
+        {
+            this.colUserControl = component as ZeroitMetroNavigationButton;
+
+            // Cache a reference to DesignerActionUIService, so the 
+            // DesigneractionList can be refreshed. 
+            this.designerActionUISvc = GetService(typeof(DesignerActionUIService)) as DesignerActionUIService;
+        }
+
+        // Helper method to retrieve control properties. Use of GetProperties enables undo and menu updates to work properly.
+        /// <summary>
+        /// Gets the name of the property by.
+        /// </summary>
+        /// <param name="propName">Name of the property.</param>
+        /// <returns>PropertyDescriptor.</returns>
+        /// <exception cref="System.ArgumentException">Matching ColorLabel property not found!</exception>
+        private PropertyDescriptor GetPropertyByName(String propName)
+        {
+            PropertyDescriptor prop;
+            prop = TypeDescriptor.GetProperties(colUserControl)[propName];
+            if (null == prop)
+                throw new ArgumentException("Matching ColorLabel property not found!", propName);
+            else
+                return prop;
+        }
+
+        #region Properties that are targets of DesignerActionPropertyItem entries.
+
+        /// <summary>
+        /// Gets or sets the color of the back.
+        /// </summary>
+        /// <value>The color of the back.</value>
+        public Color BackColor
+        {
+            get
+            {
+                return colUserControl.BackColor;
+            }
+            set
+            {
+                GetPropertyByName("BackColor").SetValue(colUserControl, value);
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the color of the fore.
+        /// </summary>
+        /// <value>The color of the fore.</value>
+        public Color ForeColor
+        {
+            get
+            {
+                return colUserControl.ForeColor;
+            }
+            set
+            {
+                GetPropertyByName("ForeColor").SetValue(colUserControl, value);
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the arrow direction.
+        /// </summary>
+        /// <value>The arrow direction.</value>
+        public System.Windows.Forms.ArrowDirection ArrowDirection
+        {
+            get
+            {
+                return colUserControl.ArrowDirection;
+            }
+            set
+            {
+                GetPropertyByName("ArrowDirection").SetValue(colUserControl, value);
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the color of the arrow.
+        /// </summary>
+        /// <value>The color of the arrow.</value>
+        public Color ArrowColor
+        {
+            get
+            {
+                return colUserControl.ArrowColor;
+            }
+            set
+            {
+                GetPropertyByName("ArrowColor").SetValue(colUserControl, value);
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the color of the arrow hover.
+        /// </summary>
+        /// <value>The color of the arrow hover.</value>
+        public Color ArrowHoverColor
+        {
+            get
+            {
+                return colUserControl.ArrowHoverColor;
+            }
+            set
+            {
+                GetPropertyByName("ArrowHoverColor").SetValue(colUserControl, value);
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the color of the arrow pressed.
+        /// </summary>
+        /// <value>The color of the arrow pressed.</value>
+        public Color ArrowPressedColor
+        {
+            get
+            {
+                return colUserControl.ArrowPressedColor;
+            }
+            set
+            {
+                GetPropertyByName("ArrowPressedColor").SetValue(colUserControl, value);
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the color of the border.
+        /// </summary>
+        /// <value>The color of the border.</value>
+        public Color BorderColor
+        {
+            get
+            {
+                return colUserControl.BorderColor;
+            }
+            set
+            {
+                GetPropertyByName("BorderColor").SetValue(colUserControl, value);
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the color of the border hover.
+        /// </summary>
+        /// <value>The color of the border hover.</value>
+        public Color BorderHoverColor
+        {
+            get
+            {
+                return colUserControl.BorderHoverColor;
+            }
+            set
+            {
+                GetPropertyByName("BorderHoverColor").SetValue(colUserControl, value);
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the color of the border pressed.
+        /// </summary>
+        /// <value>The color of the border pressed.</value>
+        public Color BorderPressedColor
+        {
+            get
+            {
+                return colUserControl.BorderPressedColor;
+            }
+            set
+            {
+                GetPropertyByName("BorderPressedColor").SetValue(colUserControl, value);
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the default color.
+        /// </summary>
+        /// <value>The default color.</value>
+        public Color DefaultColor
+        {
+            get
+            {
+                return colUserControl.DefaultColor;
+            }
+            set
+            {
+                GetPropertyByName("DefaultColor").SetValue(colUserControl, value);
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the color of the disabled arrow.
+        /// </summary>
+        /// <value>The color of the disabled arrow.</value>
+        public Color DisabledArrowColor
+        {
+            get
+            {
+                return colUserControl.DisabledArrowColor;
+            }
+            set
+            {
+                GetPropertyByName("DisabledArrowColor").SetValue(colUserControl, value);
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the color of the disabled.
+        /// </summary>
+        /// <value>The color of the disabled.</value>
+        public new Color DisabledColor
+        {
+            get
+            {
+                return colUserControl.DisabledColor;
+            }
+            set
+            {
+                GetPropertyByName("DisabledColor").SetValue(colUserControl, value);
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the color of the hover.
+        /// </summary>
+        /// <value>The color of the hover.</value>
+        public Color HoverColor
+        {
+            get
+            {
+                return colUserControl.HoverColor;
+            }
+            set
+            {
+                GetPropertyByName("HoverColor").SetValue(colUserControl, value);
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the color of the pressed.
+        /// </summary>
+        /// <value>The color of the pressed.</value>
+        public Color PressedColor
+        {
+            get
+            {
+                return colUserControl.PressedColor;
+            }
+            set
+            {
+                GetPropertyByName("PressedColor").SetValue(colUserControl, value);
+            }
+        }
+
+
+        #endregion
+
+        #region DesignerActionItemCollection
+
+        /// <summary>
+        /// Returns the collection of <see cref="T:System.ComponentModel.Design.DesignerActionItem" /> objects contained in the list.
+        /// </summary>
+        /// <returns>A <see cref="T:System.ComponentModel.Design.DesignerActionItem" /> array that contains the items in this list.</returns>
+        public override DesignerActionItemCollection GetSortedActionItems()
+        {
+            DesignerActionItemCollection items = new DesignerActionItemCollection();
+
+            //Define static section header entries.
+            items.Add(new DesignerActionHeaderItem("Appearance"));
+
+            items.Add(new DesignerActionPropertyItem("ArrowDirection",
+                                 "Arrow Direction", "Appearance",
+                                 "Sets the arrow direction."));
+
+            items.Add(new DesignerActionPropertyItem("ArrowColor",
+                                 "Arrow Color", "Appearance",
+                                 "Sets the arrow color."));
+
+            items.Add(new DesignerActionPropertyItem("ArrowHoverColor",
+                                 "Hovered Color", "Appearance",
+                                 "Sets the hovered arrow color."));
+
+            items.Add(new DesignerActionPropertyItem("ArrowPressedColor",
+                                 "Pressed Color", "Appearance",
+                                 "Sets the color when pressed."));
+
+
+            items.Add(new DesignerActionPropertyItem("BorderColor",
+                "Border Color", "Appearance",
+                "Sets the border color."));
+
+            items.Add(new DesignerActionPropertyItem("BorderHoverColor",
+                "Border Hover Color", "Appearance",
+                "Sets the hovered border color."));
+
+
+            items.Add(new DesignerActionPropertyItem("BorderPressedColor",
+                "Border Pressed Color", "Appearance",
+                "Sets the pressed border color."));
+
+            items.Add(new DesignerActionPropertyItem("DefaultColor",
+                "Default Color", "Appearance",
+                "Sets the default color."));
+
+
+            items.Add(new DesignerActionPropertyItem("DisabledArrowColor",
+                "Disabled Arrow Color", "Appearance",
+                "Sets the disabled arrow color."));
+
+            items.Add(new DesignerActionPropertyItem("DisabledColor",
+                "Inner Disabled Color", "Appearance",
+                "Sets the disabled color."));
+
+
+            items.Add(new DesignerActionPropertyItem("HoverColor",
+                "Inner Hover Color", "Appearance",
+                "Sets the hovered color."));
+
+            items.Add(new DesignerActionPropertyItem("PressedColor",
+                "Inner Pressed Color", "Appearance",
+                "Sets the pressed color."));
+            
+
+            //Create entries for static Information section.
+            StringBuilder location = new StringBuilder("Product: ");
+            location.Append(colUserControl.ProductName);
+            StringBuilder size = new StringBuilder("Version: ");
+            size.Append(colUserControl.ProductVersion);
+            items.Add(new DesignerActionTextItem(location.ToString(),
+                             "Information"));
+            items.Add(new DesignerActionTextItem(size.ToString(),
+                             "Information"));
+
+            return items;
+        }
+
+        #endregion
+
+
+
+
+    }
+
+    #endregion
+
+    #endregion
+
+
+}
